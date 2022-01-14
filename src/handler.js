@@ -72,7 +72,7 @@ const getAllBooksHandler = (request, h) => {
     status: 'success',
     data: {
       books: paramBooks.map((book) => ({
-        bookId: book.id,
+        id: book.id,
         name: book.name,
         publisher: book.publisher,
       })),
@@ -105,6 +105,7 @@ const getBookByIdHandler = (request, h) => {
   return response;
 };
 
+// edit buku yang telah tersedia
 const editBookByIdHandler = (request, h) => {
   const { id } = request.params;
 
@@ -134,7 +135,7 @@ const editBookByIdHandler = (request, h) => {
     });
     response.code(200);
     return response;
-  } if (name === null) {
+  } if (name === undefined) {
     const response = h.response({
       status: 'fail',
       message: 'Gagal memperbarui buku. Mohon isi nama buku',
@@ -157,6 +158,7 @@ const editBookByIdHandler = (request, h) => {
   return response;
 };
 
+// menghapus data buku
 const deleteBookByIdHandler = (request, h) => {
   const { id } = request.params;
 
