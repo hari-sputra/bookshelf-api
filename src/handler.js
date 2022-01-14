@@ -72,7 +72,7 @@ const getAllBooksHandler = (request, h) => {
     status: 'success',
     data: {
       books: paramBooks.map((book) => ({
-        id: book.id,
+        bookId: book.id,
         name: book.name,
         publisher: book.publisher,
       })),
